@@ -73,3 +73,44 @@ function formata_data_banco_sem_hora($string) {
 
     return $dia . '/' . $mes_num . '/' . $ano;
 }
+
+/*
+* Recupera informações do website
+* Para ser usado no header ou footers
+*/
+function info_header_footer() {
+
+    $CI = & get_instance();
+
+    $sistema = $CI->core_model->get_by_id('sistema', array('sistema_id' => 1));
+
+    return $sistema;
+}
+
+/*
+* Recupera as informações do anunciante para ser usada na area do mesmo
+*/
+function get_info_anunciante() {
+
+    $CI = & get_instance();
+
+    $anunciante = $CI->ion_auth->user()->row();
+
+    return $anunciante;
+}
+
+
+/*
+* Recupera  as categorias pai para serem exibidas na sidebar da area publica
+*/
+function categorias_pai_sidebar() {
+
+    $CI = & get_instance();
+
+    $categorias_pai = $CI->anuncios_model->get_all_categorias_pai_home();
+
+    return $categorias_pai;
+}
+
+
+

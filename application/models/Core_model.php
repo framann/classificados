@@ -109,15 +109,15 @@ se $get_last_id veio como parametro, então será inseriodo na sessão então o 
 
     public function count_all_results($tabela = null, $condicoes = null) {
 
-        if ($tabela && $this->db->table_exists($tabela) && is_array($condicoes)) {
+        if ($tabela && $this->db->table_exists($tabela)) {
 
-            if (is_array(condicoes)) {
+            if (is_array($condicoes)) {
 
                 $this->db->where($condicoes);
             }
 
             return $this->db->count_all_results($tabela);
-        }else {
+        } else {
             return false;
         }
     }

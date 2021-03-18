@@ -45,7 +45,7 @@ public function index() {
       'assets/bundles/jquery-ui/jquery-ui.min.js',
       'assets/js/page/datatables.js',
     ),
-    'categorias' => $this->categorias_model->get_all('categorias'),
+    'categorias' => $this->core_model->get_all('categorias'),
   );
 
   $this->load->view('restrita/layout/header', $data);
