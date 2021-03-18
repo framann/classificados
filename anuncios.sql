@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Fev-2021 às 11:12
+-- Tempo de geração: 17-Mar-2021 às 01:25
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.2.26
 
@@ -55,7 +55,8 @@ CREATE TABLE `anuncios` (
 --
 
 INSERT INTO `anuncios` (`anuncio_id`, `anuncio_user_id`, `anuncio_codigo`, `anuncio_titulo`, `anuncio_descricao`, `anuncio_categoria_pai_id`, `anuncio_categoria_id`, `anuncio_preco`, `anuncio_localizacao_cep`, `anuncio_logradouro`, `anuncio_bairro`, `anuncio_cidade`, `anuncio_estado`, `anuncio_bairro_metalink`, `anuncio_cidade_metalink`, `anuncio_data_criacao`, `anuncio_data_alteracao`, `anuncio_publicado`, `anuncio_situacao`) VALUES
-(6, 6, '12345678', 'Controle de ps4 usado em excelente estado', 'Controle de ps4 usado em excelente estado', 3, 5, '100.00', '80510-000', NULL, NULL, NULL, NULL, '', '', '2021-02-19 10:53:46', '2021-02-19 16:58:34', 0, 0);
+(7, 12, '12345678', 'Controle de ps4 usado em bom estado', 'Controle de ps4 usado em bom estado \r\nEntregue na região central de Curitiba', 3, 5, '150.00', '80510-000', NULL, NULL, NULL, NULL, '', '', '2021-02-28 15:13:24', '2021-03-03 17:13:06', 1, 1),
+(8, 12, '24106539', 'Violão usado em excelente estado', 'Violão usado em bom estado', 4, 6, '50.00', '80510-000', 'Rua Inácio Lustosa', 'São Francisco', 'Curitiba', 'PR', 'sao-francisco', 'curitiba', '2021-03-04 16:46:09', '2021-03-04 16:47:36', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -74,12 +75,11 @@ CREATE TABLE `anuncios_fotos` (
 --
 
 INSERT INTO `anuncios_fotos` (`foto_id`, `foto_anuncio_id`, `foto_nome`) VALUES
-(3705, 6, 'ad0f4caa149662c5bf2594f94f656ee0.jpg'),
-(3706, 6, '1911754dae4478ff77246b2b2f1bac9c.jpg'),
-(3707, 6, '3b69f164b69e72f13b078d0216384c19.jpg'),
-(3708, 6, '6a8d85d315e18e67c687947722d89528.jpg'),
-(3709, 6, 'cb2e6c2469b5b023a3814087dce9e175.jpg'),
-(3710, 6, '93f7db8ce4bc4eff943225e97de39541.jpg');
+(3775, 7, '99ad2a08e183f5997f2231c06c549def.jpg'),
+(3780, 8, 'bde426b88a1b447fe244e5f781a4c77e.jpg'),
+(3781, 8, 'f68107c40c062744aab8ed0488ab0ba1.jpg'),
+(3782, 8, '4fa03b3cfc4ae7d2a5f5e35a783828dd.jpg'),
+(3783, 8, '3b4807a7624060850d1c6d39d52a95eb.jpg');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,8 @@ INSERT INTO `categorias` (`categoria_id`, `categoria_pai_id`, `categoria_nome`, 
 (2, 2, 'Mouse', 1, 'mouse', '2021-02-10 18:09:47', NULL),
 (3, 3, 'Fone de ouvido games', 1, 'fone-de-ouvido-games', '2021-02-11 19:27:49', NULL),
 (4, 2, 'Memória Ram', 1, 'memoria-ram', '2021-02-11 19:33:16', NULL),
-(5, 3, 'Controles', 1, 'controles', '2021-02-13 11:40:07', NULL);
+(5, 3, 'Controles', 1, 'controles', '2021-02-13 11:40:07', NULL),
+(6, 4, 'violão', 1, 'violao', '2021-03-04 16:38:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,8 @@ CREATE TABLE `categorias_pai` (
 
 INSERT INTO `categorias_pai` (`categoria_pai_id`, `categoria_pai_nome`, `categoria_pai_ativa`, `categoria_pai_meta_link`, `categoria_pai_classe_icone`, `categoria_pai_data_criacao`, `categoria_pai_data_alteracao`) VALUES
 (2, 'Informática', 1, 'informatica', 'ini-laptop', '2021-02-09 21:23:37', NULL),
-(3, 'Games', 1, 'games', 'ini-laptop', '2021-02-10 18:36:06', NULL);
+(3, 'Games', 1, 'games', 'ini-laptop', '2021-02-10 18:36:06', NULL),
+(4, 'Instrumentos musicais', 1, 'instrumentos-musicais', 'ini-laptop', '2021-03-04 16:14:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -205,9 +207,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `user_foto`, `user_cpf`, `user_cep`, `user_endereco`, `user_numero_endereco`, `user_bairro`, `user_cidade`, `user_estado`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$r0W3kFHxKmAimCQOYYH6kuydG6M1azUXMiIoiRKUcYNAlgASlGCzy', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1613728989, 1, 'Admin', 'souza', 'ADMIN', '(41) 3232-3232', 'user-5.png', '576.719.480-71', '80540-000', 'Rua de teste', '45', 'Centro', 'Curitiba', 'PR'),
+(1, '127.0.0.1', 'administrator', '$2y$12$r0W3kFHxKmAimCQOYYH6kuydG6M1azUXMiIoiRKUcYNAlgASlGCzy', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1614905506, 1, 'Admin', 'souza', 'ADMIN', '(41) 3232-3232', 'user-5.png', '576.719.480-71', '80540-000', 'Rua de teste', '45', 'Centro', 'Curitiba', 'PR'),
 (2, '::1', NULL, '$2y$10$nkyouRgykyYt3vJdmQtNuud7CCB82F5jAI7tUqtTwgRt/PkhXiSFq', 'fabinho.palhoca@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1612637226, 1613167696, 1, 'Natária', 'souza', NULL, '(16) 2541-0663', '8ace9b91780e1cd2aa424ed127e34253.jpg', '295.506.244-80', '14811-443', 'Rua Zenilton Duclerc Verçosa', '100', 'Jardim Ana Adelaide', 'Araraquara', 'SP'),
-(6, '::1', NULL, '$2y$10$Ft23Xxw3UmckZ2vpwN.dyuvh5cYzgu5Iuj/oQxsSq9GnMc5gTa1l6', 'daianealessandramoraes-90@mouraflorito.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1612707655, 1613167083, 1, 'Daiane', 'moraes', NULL, '(91) 99206-1057', '5d74bc8a2d049ae6e94db44ff3a0abb0.png', '295.506.244-80', '66645-260', 'Passagem Boa Esperança', '101', 'Castanheira', 'Belém', 'PA');
+(11, '::1', NULL, '$2y$10$fJFbY6zV1KzVX9xtFDwkMucdUbla8eOO16Fau2ySC5bnqSgqNegua', 'rebecaaliciasuelisilveira.rebecaaliciasuelisilveira@riquefroes.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1614195584, NULL, 1, 'Rebeca', 'Alícia Sueli Silveira', NULL, '(69) 99755-0270', '3837a679426b3ef39b95abf0c26812ad.jpg', '467.493.029-47', '76828-514', 'Rua Olidina Batista', '542', 'Jardim Santana', 'Porto Velho', 'RO'),
+(12, '::1', NULL, '$2y$10$SaL6fI0J76wExhO6csGiB.Jzg5mip5POeMGdW0C7IsYfcR.MbjnJu', 'likosi7598@timothyjsilverman.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1614196063, 1615169305, 1, 'Iago', 'Theo Freitas', NULL, '(68) 3947-3164', '215350eb6576b3d4c364a4e627b9b2bc.jpg', '854.442.580-13', '80420-010', 'Avenida Vicente Machado', '251', 'Centro', 'Curitiba', 'PR');
 
 -- --------------------------------------------------------
 
@@ -227,8 +230,9 @@ CREATE TABLE `users_groups` (
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (20, 1, 1),
-(26, 2, 2),
-(25, 6, 2);
+(51, 2, 2),
+(54, 11, 2),
+(58, 12, 2);
 
 --
 -- Índices para tabelas despejadas
@@ -300,25 +304,25 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
-  MODIFY `anuncio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `anuncio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `anuncios_fotos`
 --
 ALTER TABLE `anuncios_fotos`
-  MODIFY `foto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3711;
+  MODIFY `foto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3784;
 
 --
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `categorias_pai`
 --
 ALTER TABLE `categorias_pai`
-  MODIFY `categoria_pai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `categoria_pai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `groups`
@@ -330,19 +334,19 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de tabela `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- Restrições para despejos de tabelas

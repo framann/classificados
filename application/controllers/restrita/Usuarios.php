@@ -89,9 +89,9 @@ $this->load->view('restrita/layout/footer');
                  Sucesso formulário foi validado, agora damos sequencia
                 */
 
-                 $username = $this->input->post('first_name') .'-' . $this->input->post('last_name');
-                 $password = $this->input->post('password');
-                 $email = $this->input->post('email');
+                $username = $this->input->post('first_name') .'-' . $this->input->post('last_name');
+                $password = $this->input->post('password');
+                $email = $this->input->post('email');
 
                  
                 $additional_data = elements(

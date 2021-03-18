@@ -239,7 +239,7 @@ class Anuncios extends CI_Controller {
             $to_email = $anunciante->email;
 
 
-            //$this->email->from('from_email', '$sistema->sistema_nome_fantasia');
+            $this->email->from('from_email', '$sistema->sistema_nome_fantasia');
             $this->email->to('$sto_email');
 
             $this->email->subject('Boas noticias! seu anuncio foi publicado');
@@ -258,7 +258,7 @@ class Anuncios extends CI_Controller {
               */
 
 
-            }else{
+            } else {
 
                 /*
                 * Não foi possivel enviar o email
@@ -422,7 +422,7 @@ class Anuncios extends CI_Controller {
                  $retorno['erro'] = 0;
                  $retorno['anuncio_localizacao_cep'] = '<span class="text-info">Seu CEP foi validado</span>';
                }
-             }else {
+             } else {
 
                 /*
                  erros de validação

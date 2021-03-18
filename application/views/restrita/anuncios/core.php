@@ -11,9 +11,6 @@
   <!-- Main Content -->
   <div class="main-content">
 
-
-
-
     <section class="section">
       <div class="section-body">
 
@@ -233,7 +230,7 @@
 
 
 
-                          <div id="erro_uploader" class="text-danger">
+                          <div id="erro_uploaded" class="text-danger">
 
                           </div>
 
@@ -263,13 +260,13 @@
 
                             <ul style="list-style: none; display: inline-block;">
 
-                              <li>
+                              <li class="text-center">
 
-                               <img src="<?php echo base_url('uploads/anuncios/small/ . $foto->foto_nome'); ?>" width="80" class="img-thumbnail mr-1 mb-2">
-                               <input type="hidden" name="fotos_produtos[]" value="<?php echo $foto->foto_nome; ?>">
-                               <button class="btn btn-sm btn-danger btn-block btn-icon btn-remove"><i class="fas fa-times"></i></button>
+                                <img src="<?php echo base_url('uploads/anuncios/small/' . $foto->foto_nome); ?>" width="80" class="img-thumbnail mr-1 mb-2">
+                                <input type="hidden" name="fotos_produtos[]" value="<?php echo $foto->foto_nome; ?>"><br>
+                                <button class="btn btn-danger btn-remove" style="width: 45px">X</button>
 
-                             </li>
+                              </li>
 
                            </ul>
 

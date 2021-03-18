@@ -7,7 +7,7 @@ $(document).ready(function ()
         onSuccess: function (files, data) {
 
             if (data.erro === 0) {
-                $("#uploaded_image").append('<ul style="list-style: none; display: inline-block"><li><img src="' + BASE_URL + 'uploads/anuncios/' + data.uploaded_data['file_name'] + '" width="80" class="img-thumbnail mb-2 mr-1"><input type="hidden" name="fotos_produtos[]" value="' + data.foto_nome + '"><button type="button" class="btn btn-sm btn-danger btn-icon btn-block btn-remove text-white mx-auto mb-30" style="width: 50px"><i class="fa fa-times"></i></a></li></ul>');
+                $("#uploaded_image").append('<ul style="list-style: none; display: inline-block"><li> class="text-center"><img src="' + BASE_URL + 'uploads/anuncios/' + data.uploaded_data['file_name'] + '" width="80" class="img-thumbnail mb-2 mr-1"><input type="hidden" name="fotos_produtos[]" value="' + data.foto_nome + '"><br><button type="button" class="btn btn-danger btn-remove" style="width: 45px">X</a></li></ul>');
             } else {
 
                 $("#erro_uploaded").html(data.mensagem);
@@ -17,7 +17,10 @@ $(document).ready(function ()
     });
 
 
-    $('#uploaded_image').on('click', '.btn-remove', function () {
+    $('#uploaded_image').on('click', '.btn-remove', function (event) {
+
+        event.preventDefault();
+
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn bg-danger text-white ml-2',
