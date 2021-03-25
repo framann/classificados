@@ -21,12 +21,6 @@ defined('BASEPATH') OR exit('Ação não permitida');
 
     public function auth() {
 
-        /*
-         [email] => fabinho.palhoca@hotmail.com
-         [password] => 123456
-         [remember] => on
-        */
-
 
         $identity = $this->input->post('email');
         $password = $this->input->post('password');
@@ -58,9 +52,7 @@ defined('BASEPATH') OR exit('Ação não permitida');
 
         $this->ion_auth->logout();
         redirect($this->router->fetch_class());
-
     }
-
 
 }
 

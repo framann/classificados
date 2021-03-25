@@ -24,7 +24,7 @@ class Conta extends CI_Controller {
 
 	    $data = array(
 	        'titulo' => 'Gerenciar minha conta',
-	        'anunciante' => $anunciante,
+          'anunciante' => $anunciante,
 	        'total_anuncios_cadastrados' => $this->core_model->count_all_results('anuncios', array('anuncio_user_id' => $anunciante->id)),
 	    );
         

@@ -9,7 +9,7 @@ $(document).ready( function () {
 
         		url: BASE_URL + 'busca/busca_ajax',
         		type: 'post',
-        		datatype: 'json',
+        		dataType: 'json',
         		data: 'busca=' + request.term,
         		success: function (data) {
 
@@ -18,7 +18,7 @@ $(document).ready( function () {
         				var result = [{
                                 label: 'infelizmente não encontramos o que está procurando',
                                 value: response.term
-        				}];
+        				    }];
         			    response(result);
 
         			} else {
@@ -36,19 +36,19 @@ $(document).ready( function () {
         minLength: 1,
         select: function (event, ui) {
 
-        	if(ui.item.value === 'infelizmente não encontramos o que está procurando') {
+        	if (ui.item.value === 'infelizmente não encontramos o que está procurando') {
                return false;
         	} else {
 
-        		$('$busca').val(ui.item.value);
-        			$(event,target.form).submit(); //submite o formulario ao clicar em uma opção do select do autocomplete
+        		$('#busca').val(ui.item.value);
+        			$(event.target.form).submit(); //submite o formulario ao clicar em uma opção do select do autocomplete
 
         	}
 
         }, //fim select
 
 
-	}); //fim busca
+	}); //fim #busca
 
 
 

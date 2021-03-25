@@ -90,6 +90,7 @@ function info_header_footer() {
 /*
 * Recupera as informações do anunciante para ser usada na area do mesmo
 */
+
 function get_info_anunciante() {
 
     $CI = & get_instance();

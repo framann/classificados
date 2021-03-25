@@ -17,7 +17,6 @@
 
 								<?php foreach ($categorias_pai_sidebar as $cat_pai): ?>
 
-
 								<li>
 									<a href="<?php echo base_url('busca/master/' . $cat_pai->categoria_pai_meta_link); ?>">
 										<i class="lni <?php echo $cat_pai->categoria_pai_classe_icone ?>"></i>
@@ -42,36 +41,40 @@
 									<li><a href="<?php echo base_url('/'); ?>">Home&nbsp;/&nbsp;</a></li>
 
 
-									<?php if ($this->router->fetch_class() == 'busca'): ?>
+									    <?php if ($this->router->fetch_class() == 'busca'): ?>
 
-										<?php if ($this->router->fetch_method() != 'master'): ?>
 
-											<li><a href="<?php echo base_url('busca/master/' . $categoria_pai_meta_link); ?>"><?php echo $categoria_pai_nome; ?>&nbsp;/&nbsp;</a></li>
+									    	<?php if ($this->router->fetch_method() != 'master'): ?>
 
-											<?php if($this->router->fetch_method() != 'categoria'): ?>
+											    <li><a href="<?php echo base_url('busca/master/' . $categoria_pai_meta_link); ?>"><?php echo $categoria_pai_nome; ?>&nbsp;/&nbsp;</a></li>
 
-												<li><a href="<?php echo base_url('busca/categoria/' . $categoria_meta_link); ?>"><?php echo $categoria_nome; ?></a>&nbsp;/&nbsp;</li>
+											    <?php if ($this->router->fetch_method() != 'categoria'): ?>
 
-											<?php endif; ?>
+											        <li><a href="<?php echo base_url('busca/categoria/' . $categoria_meta_link); ?>"><?php echo $categoria_nome; ?></a>&nbsp;/&nbsp;</li>
 
-										<?php endif; ?>
+										        <?php endif; ?>
 
-									    <?php if($this->router->fetch_method() == 'cidade'): ?>
+										    <?php endif; ?>
+		
 
-									        <li><a href="<?php echo base_url('busca/estado/' . $anuncio_estado); ?>"><?php echo $anuncio_estado; ?></a>&nbsp;/&nbsp;</li>
+											<?php if ($this->router->fetch_method() == 'cidade'): ?>
+
+											    <li><a href="<?php echo base_url('busca/estado/' . $anuncio_estado); ?>"><?php echo $anuncio_estado; ?></a>&nbsp;/&nbsp;</li>
+
+										    <?php endif; ?>
+
+											<li class="current"><?php echo $informacao_busca; ?></li>
 
 									    <?php endif; ?>
 
-									    <li class="current"><?php echo $informacao_busca; ?></li>							    
 
-									<?php endif; ?>
+									    <?php if($this->router->fetch_class() == 'home'): ?>
+
+									        <li class="current">Exibindo todos os anuncios</li>	
+
+									    <?php endif; ?>
 
 
-									<?php if($this->router->fetch_class() == 'home'): ?>
-
-									    <li class="current">Exibindo todos os anuncios</li>								    
-
-									<?php endif; ?>
 
 
 									

@@ -184,7 +184,7 @@ class Anuncios_model extends CI_Model {
       ]);
 
       $this->db->where('anuncios.anuncio_publicado', 1);
-      $this->db->where('$condicoes', 1);
+      $this->db->where($condicoes);
 
       $this->db->group_by('anuncios.anuncio_id');
 
@@ -211,8 +211,8 @@ class Anuncios_model extends CI_Model {
        'anuncios.*',
        'categorias.categoria_nome',
        'categorias.categoria_meta_link',
-       'categorias_pai.categoria_pai_meta_link',
        'categorias_pai.categoria_pai_nome',
+       'categorias_pai.categoria_pai_meta_link',
        'users.id',
        'users.first_name',
        'users.last_name',

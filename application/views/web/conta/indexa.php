@@ -25,12 +25,14 @@
 
 									<label class="control-label">Seu endereço:</label>
 
-									<p class="mb-3">CEP: <?php echo $anunciante->user_cep . ' - ' .$anunciante->user_endereco . ', '. $anunciante->user_numero_endereco ?><br>
-									<?php echo $anunciante->user_bairro . ', '. $anunciante->user_cidade . ' - '. $anunciante->user_estado ?>
+									<p class="mb-3">CEP: <?php echo $anunciante->user_cep .' - '.$anunciante->user_endereco . ', '. $anunciante->user_numero_endereco ?><br>
+									<?php echo $anunciante->user_bairro. ', '.$anunciante->user_cidade. ' - '.$anunciante->user_estado ?>
 									</p>
 
 									<label class="control-label">Anuncios cadastrados:</label>
 									<p class="mb-3 badge badge-info"><?php echo $total_anuncios_cadastrados; ?></p>
+
+
 								</div>
 								
 							</div>

@@ -192,18 +192,19 @@
 													<i class="lni-image"></i>
 													<input type="file" class="form-control" name="user_foto_file">
 												</div>
-												<?php echo form_error('user_foto', '<div class="text-danger">', '</div>'); ?>
+											    <?php echo form_error('user_foto', '<div class="text-danger">', '</div>'); ?>
 												<div id="user_foto"></div>
 											</div>
 
 
 											<div class="form-group col-md-3">
-												<?php if(isset($usuario)): ?>
+
+												<?php if (isset($usuario)): ?>
 
 													<div id="box-foto-usuario">
 
 														<input type="hidden" name="user_foto" value="<?php echo $usuario->user_foto; ?>">
-														<img width="75" alt="Usuario image" src="<?php echo base_url('uploads/usuarios/' . $usuario->user_foto); ?>" class="rounded-circle">
+														<img width="80" alt="Usuário image" src="<?php echo base_url('uploads/usuarios/small/' . $usuario->user_foto); ?>" class="rounded-circle">
 
 													</div>
 
@@ -214,7 +215,6 @@
 
 
 														</div>
-
 
 													<?php endif; ?> 
 

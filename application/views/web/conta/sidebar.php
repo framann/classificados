@@ -4,7 +4,7 @@
 
 	<div class="sidebar-box">
 		<div class="user">
-			<figure>
+			<figure">
 				<img width="80" src="<?php echo base_url('uploads/usuarios/small/' . $anunciante->user_foto); ?>" alt="">
 			</figure>
 			<div class="usercontent">
@@ -27,7 +27,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="<?php echo ($this->router->fetch_method() == 'anuncios' ? 'active' : ''); ?>" href="<?php echo base_url('conta/anuncios') ?>">
+					<a class="<?php echo ($this->router->fetch_method() == 'anuncios' ? 'active' : ''); ?>" href="<?php echo base_url('conta/anuncios'); ?>">
 						<i class="lni-layers"></i>
 						<span>Meus anuncios</span>
 					</a>
@@ -57,7 +57,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('login/logout') ?>">
+					<a href="<?php echo base_url('login/logout'); ?>">
 						<i class="lni-enter"></i>
 						<span>Logout</span>
 					</a>

@@ -178,7 +178,7 @@
 						<div class="search-bar">
 							<div class="search-inner ui-widget">
 								<form class="search-form" method="post" action="<?php echo base_url('busca'); ?>">
-									<div class="form-group inputwithicon">
+									<div class="form-group inputwithicon" style="width: 80%">
 										<input type="text" id="busca" name="Busca" class="form-control" placeholder="O que está procurando?">
 									</div>
 									

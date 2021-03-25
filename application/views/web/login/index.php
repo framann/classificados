@@ -55,7 +55,7 @@
 								<input type="checkbox" name="remember" class="custom-control-input" id="checkedall">
 								<label class="custom-control-label" for="checkedall">Manter logado</label>
 							</div>
-							<a class="forgetpassword" href="<?php base_url('register'); ?>">Não tem uma conta?</a>
+							<a class="forgetpassword" href="<?php echo base_url('registrar'); ?>">Não tem uma conta?</a>
 						</div>
 						<div class="text-center">
 							<button class="btn btn-common log-btn">Enviar</button>

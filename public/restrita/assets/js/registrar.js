@@ -10,7 +10,7 @@ var App_registrar = function () {
            
 
             $.ajax({
-            	type: "POST",
+            	type: "post",
             	url: BASE_URL + 'registrar/preenche_endereco',
             	dataType: 'json',
                 data: {user_cep: user_cep},
@@ -31,12 +31,12 @@ var App_registrar = function () {
                 		$('user_cep').html('');
 
                 		if(!response.user_endereco) {
-                            $('[name=user_endereco]').addClass('bg-white text-darc');
+                            $('[name=user_endereco]').addClass('bg-white text-dark');
                             $('[name=user_endereco]').prop('readonly', false);
                 		}
 
                 		if(!response.user_bairro) {
-                            $('[name=user_bairro]').addClass('bg-white text-darc');
+                            $('[name=user_bairro]').addClass('bg-white text-dark');
                             $('[name=user_bairro]').prop('readonly', false);
                 		}
 
@@ -46,7 +46,7 @@ var App_registrar = function () {
                 		$('[name=user_cidade]').val(response.user_cidade);
                 		$('[name=user_estado]').val(response.user_estado);
 
-                	}else{
+                	} else {
 
                         $('#user_cep').html(response.user_cep);
 
@@ -101,11 +101,11 @@ var App_registrar = function () {
 
                     //impando texto
 
-                	if(response.erro === 0)  {
+                	if (response.erro === 0)  {
 
                         $('#box-foto-usuario').html("<input type='hidden' name='user_foto' value='"+ response.user_foto +"'> <img width='75' alt='Usuario image' src='" + BASE_URL + "/uploads/usuarios/small/" + response.user_foto + "' class='rounded-circle'>");
                          
-                	}else{
+                	} else {
 
                        $('#user_foto').html(response.mensagem);
 

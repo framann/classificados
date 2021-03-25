@@ -8,7 +8,7 @@ class Busca extends CI_Controller {
 
     	$busca = $this->input->post('busca');
 
-    	if(!$busca) {
+    	if (!$busca) {
             redirect('/');
     	} else {
 
@@ -16,49 +16,52 @@ class Busca extends CI_Controller {
     		* Foi digitado alguma coisa no input name, e damos sequencia
     		*/
 
-    		
+        
 
-    		if(!$anuncios = $this->anuncios_model->get_all_by_busca($busca)) {
+    	if (!$anuncios = $this->anuncios_model->get_all_by_busca($busca)) {
 
-               redirect('/');
-    		} else {
+            redirect('/');
+    	} else {
+
+            /*
+            *  Maravilha foi encontrado pelo menos um anuncio com o termo digitado
+            */
+
+            $data = array(
+                'titulo' => 'Busca pelo produto ' . $busca,
+                'informacao_busca' => 'Termo digitado ' . $busca,
+            );
 
 
-    			/*
-    			*  Maravilha foi encontrado pelo menos um anuncio com o termo digitado
-    			*/
+            foreach ($anuncios as $anuncio) {
+
+                $data['categoria_pai_nome'] = $anuncio->categoria_pai_nome;
+                $data['categoria_pai_meta_link'] = $anuncio->categoria_pai_meta_link;
+                $data['categoria_nome'] = $anuncio->categoria_nome;
+                $data['categoria_meta_link'] = $anuncio->categoria_meta_link;
+                
+                break;
+            }
 
 
-    			$data = array(
-    				'titulo' => 'Busca pelo produto ' . $busca,
-    				'informação_busca' => 'Termo digitado ' . $busca,
-    			);
+                /*
+                * Foi encontrado pelo menos um anuncio de acordo com o termo digitado
+                */
 
-    		foreach ($anuncios as $anuncio) {
+                $data['anuncios'] = $anuncios;
 
-    			$data['categoria_pai_nome'] = $anuncio->categoria_pai_nome;
-    			$data['categoria_pai_meta_link'] = $anuncio->categoria_pai_meta_link;
-    			$data['categoria_nome'] = $anuncio->categoria_nome;
-    			$data['categoria_meta_link'] = $anuncio->categoria_meta_link;
-    			
-    			break;
+                $this->load->view('web/layout/header', $data);
+                $this->load->view('web/home/index', $data);
+                $this->load->view('web/layout/footer', $data);
+            }
 
-    		}
-
-    			
-    			$data['anuncios'] = $anuncios;
-
-    			$this->load->view('web/layout/header', $data);
-    			$this->load->view('web/home/index');
-    			$this->load->view('web/layout/footer');
-    		}
-    	} 
+        }
     }
 
     public function estado($anuncio_estado = null) {
 
 
-    	if(!$anuncio_estado) {
+    	if (!$anuncio_estado) {
            redirect('/');
     	} else {
 
@@ -69,8 +72,7 @@ class Busca extends CI_Controller {
     		$anuncio = $this->session->userdata('anuncio_detalhado');
 
     		$data = array(
-    			'titulo' => 'Busca pelo estado' . $anuncio_estado,
-
+    			'titulo' => 'Busca pelo estado ' . $anuncio_estado,
     			'anuncios' => $this->anuncios_model->get_all_by(array('anuncio_estado' => $anuncio_estado, 'anuncio_categoria_pai_id' => $anuncio->anuncio_categoria_pai_id, 'anuncio_categoria_id' => $anuncio->anuncio_categoria_id)),
     		);
 
@@ -82,10 +84,10 @@ class Busca extends CI_Controller {
     			$data['categoria_meta_link'] = $anuncio->categoria_meta_link;
     			
     			break;
-
     		}
 
     		$data['informacao_busca'] = 'encontrados em ' . $anuncio_estado;
+    
 
     	//	echo '<pre>';
     	//	print_r($data['anuncios']);
@@ -145,7 +147,7 @@ class Busca extends CI_Controller {
     }
 
 
-    public function master($categoria_pai_metalink = null) {
+    public function master($categoria_pai_meta_link = null) {
 
 
     	if (!$categoria_pai_meta_link) {
@@ -164,21 +166,19 @@ class Busca extends CI_Controller {
     		);
 
 
-    		foreach ($data['anuncios'] as $anuncio) {
+            foreach ($data['anuncios'] as $anuncio) {
 
-    		//	$data['categoria_pai_nome'] = $anuncio->categoria_pai_nome;
-    		//	$data['categoria_pai_meta_link'] = $anuncio->categoria_pai_meta_link;
-    		//	$data['categoria_nome'] = $anuncio->categoria_nome;
-    		//	$data['categoria_meta_link'] = $anuncio->categoria_meta_link;
-    		//	$data['anuncio_estado'] = $anuncio->anuncio_estado;
-    		//	$data['anuncio_cidade'] = $anuncio->anuncio_cidade;
+         //       $data['categoria_pai_nome'] = $anuncio->categoria_pai_nome;
+         //       $data['categoria_pai_meta_link'] = $anuncio->categoria_pai_meta_link;
+         //       $data['categoria_nome'] = $anuncio->categoria_nome;
+         //       $data['categoria_meta_link'] = $anuncio->categoria_meta_link;
+         //       $data['anuncio_estado'] = $anuncio->anuncio_estado;
+         //       $data['anuncio_cidade'] = $anuncio->anuncio_cidade;
 
-    			$data['informacao_busca'] = 'Exibindo anúncios da categoria principal ' . $anuncio->categoria_pai_nome;
-    			
-    			break;
-
-    		}
-
+                 $data['informacao_busca'] = 'Exibindo anûncios da categoria principal ' . $anuncio->categoria_pai_nome;
+                
+                break;
+            }   
 
     		$this->load->view('web/layout/header', $data);
     		$this->load->view('web/home/index');

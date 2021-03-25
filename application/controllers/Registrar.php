@@ -25,9 +25,9 @@ class Registrar extends CI_Controller {
 
 		if($this->form_validation->run()) {
 
-			    echo '<pre>';
-			    print_r($this->input->post());
-			    exit();
+			//    echo '<pre>';
+			//    print_r($this->input->post());
+			//    exit();
 
 			    /*
                 * Sucesso formulário foi validado, agora damos sequencia
@@ -65,14 +65,14 @@ class Registrar extends CI_Controller {
 
                 if($this->ion_auth->register($username, $password, $email, $additional_data, $group)) {
 
-                   $this->session->set_flashdata('sucesso', 'Sua conta foi criada com sucesso, aproveita para fazer login');
-                    redirect('login');
+                   $this->session->set_flashdata('sucesso', 'Sua conta foi criada com sucesso, Fça o login');
+                   redirect('login');
+        
                 } else {
 
                     $this->session->set_flashdata('erro', $this->ion_auth->errors());
-                    redirect($this->router->fetch_class());
+                    redirect($this->router->fetch_class);
                 }
-
              } else {
 
             	/*
